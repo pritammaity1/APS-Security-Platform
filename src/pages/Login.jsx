@@ -1,59 +1,31 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { FaApple } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { FaMeta } from "react-icons/fa6";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 
-const Signup = () => {
+const Login = () => {
+  const navigate = useNavigate();
+
   const [form, setForm] = useState({
-    firstName: "",
-    lastName: "",
     email: "",
     password: "",
-    agree: false,
   });
 
-  const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
+    const { name, value } = e.target;
     setForm({
       ...form,
-      [name]: type === "checkbox" ? checked : value,
+      [name]: value,
     });
-  };
-
-  const validate = () => {
-    let newErrors = {};
-
-    if (!form.firstName.trim()) newErrors.firstName = "First name is required";
-
-    if (!form.lastName.trim()) newErrors.lastName = "Last name is required";
-
-    if (!form.email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!/^\S+@\S+\.\S+$/.test(form.email)) {
-      newErrors.email = "Invalid email format";
-    }
-
-    if (!form.password) {
-      newErrors.password = "Password is required";
-    } else if (form.password.length < 8) {
-      newErrors.password = "Minimum 8 characters required";
-    }
-
-    if (!form.agree) newErrors.agree = "You must accept Terms & Conditions";
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (validate()) {
-      console.log("Form Submitted:", form);
-    }
+    navigate("/dashboard");
   };
 
   return (
@@ -94,40 +66,16 @@ const Signup = () => {
       <div className="flex-1 flex items-center justify-center bg-gray-100 p-6">
         <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8">
           <h2 className="text-2xl font-bold text-center text-gray-800">
-            Sign up
+            Log in
           </h2>
+          <p className="text-center text-sm text-gray-500 mt-1">
+            Don't have an account?{" "}
+            <span className="text-cyan-600 font-medium cursor-pointer hover:underline">
+              Sign up
+            </span>
+          </p>
 
           <form onSubmit={handleSubmit} className="mt-6 space-y-4">
-            {/* First Name */}
-            <div>
-              <input
-                type="text"
-                name="firstName"
-                placeholder="First name*"
-                value={form.firstName}
-                onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-gray-50 text-gray-800 focus:outline-none focus:ring-2 focus:ring-cyan-500"
-              />
-              {errors.firstName && (
-                <p className="text-red-500 text-xs mt-1">{errors.firstName}</p>
-              )}
-            </div>
-
-            {/* Last Name */}
-            <div>
-              <input
-                type="text"
-                name="lastName"
-                placeholder="Last name*"
-                value={form.lastName}
-                onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-gray-50 text-gray-800 focus:outline-none focus:ring-2 focus:ring-cyan-500"
-              />
-              {errors.lastName && (
-                <p className="text-red-500 text-xs mt-1">{errors.lastName}</p>
-              )}
-            </div>
-
             {/* Email */}
             <div>
               <input
@@ -138,9 +86,6 @@ const Signup = () => {
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-gray-50 text-gray-800 focus:outline-none focus:ring-2 focus:ring-cyan-500"
               />
-              {errors.email && (
-                <p className="text-red-500 text-xs mt-1">{errors.email}</p>
-              )}
             </div>
 
             {/* Password */}
@@ -148,7 +93,7 @@ const Signup = () => {
               <input
                 type={showPassword ? "text" : "password"}
                 name="password"
-                placeholder="Password (8+ characters)*"
+                placeholder="Password*"
                 value={form.password}
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-gray-50 text-gray-800 pr-12 focus:outline-none focus:ring-2 focus:ring-cyan-500"
@@ -159,35 +104,13 @@ const Signup = () => {
               >
                 {showPassword ? <FiEyeOff size={18} /> : <FiEye size={18} />}
               </span>
-              {errors.password && (
-                <p className="text-red-500 text-xs mt-1">{errors.password}</p>
-              )}
             </div>
 
-            {/* Checkbox */}
-            <div>
-              <div className="flex items-start gap-2 text-xs text-gray-600">
-                <input
-                  type="checkbox"
-                  name="agree"
-                  checked={form.agree}
-                  onChange={handleChange}
-                  className="mt-1"
-                />
-                <p>
-                  I agree to Aps’s{" "}
-                  <span className="text-cyan-600 font-medium">
-                    Terms & Conditions
-                  </span>{" "}
-                  and acknowledge the{" "}
-                  <span className="text-cyan-600 font-medium">
-                    Privacy Policy
-                  </span>
-                </p>
-              </div>
-              {errors.agree && (
-                <p className="text-red-500 text-xs mt-1">{errors.agree}</p>
-              )}
+            {/* Forgot Password */}
+            <div className="text-right">
+              <span className="text-xs text-cyan-600 font-medium cursor-pointer hover:underline">
+                Forgot password?
+              </span>
             </div>
 
             {/* Submit */}
@@ -195,7 +118,7 @@ const Signup = () => {
               type="submit"
               className="w-full py-3 rounded-full bg-cyan-600 hover:bg-cyan-500 text-white font-medium transition"
             >
-              Create account
+              Log in
             </button>
           </form>
 
@@ -219,4 +142,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Login;
