@@ -13,7 +13,7 @@ import {
   FiList,
 } from "react-icons/fi";
 
-// ── Static Data ────────────────────────────────────────────
+//  Static Data
 const steps = [
   { name: "Spidering", icon: <FiGlobe /> },
   { name: "Mapping", icon: <FiMap /> },
@@ -48,7 +48,7 @@ const findings = [
   },
 ];
 
-// ── Component ──────────────────────────────────────────────
+//  Component
 const ActiveScan = ({ scanId = "scan-001" }) => {
   const [activeStep] = useState(0);
   const [activeTab, setActiveTab] = useState("activity");

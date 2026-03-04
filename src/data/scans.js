@@ -18,7 +18,7 @@ export const scans = [
     id: "2",
     name: "Payment Gateway API",
     type: "Blackbox",
-    status: "Running", // Completed | Scheduled | Running | Failed
+    status: "Running",
     progress: 65,
     lastScan: "2h ago",
     vulnerabilities: {
@@ -32,7 +32,7 @@ export const scans = [
     id: "3",
     name: "Internal Admin Panel",
     type: "Whitebox",
-    status: "Scheduled", // Completed | Scheduled | Running | Failed
+    status: "Scheduled",
     progress: 0,
     lastScan: "Never",
     vulnerabilities: {
@@ -46,7 +46,7 @@ export const scans = [
     id: "4",
     name: "Mobile Backend Service",
     type: "Greybox",
-    status: "Failed", // Completed | Scheduled | Running | Failed
+    status: "Failed",
     progress: 40,
     lastScan: "1d ago",
     vulnerabilities: {
@@ -60,7 +60,7 @@ export const scans = [
     id: "5",
     name: "Customer Portal",
     type: "Blackbox",
-    status: "Completed", // Completed | Scheduled | Running | Failed
+    status: "Completed",
     progress: 100,
     lastScan: "6h ago",
     vulnerabilities: {
