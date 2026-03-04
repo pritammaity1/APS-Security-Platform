@@ -30,7 +30,7 @@ This project is a responsive cybersecurity dashboard UI built using React and Ta
 
 ## How to Run
 
-git clone https://github.com/pritammaity1/APS-Security-Platform.git
-cd APS-Security-Platform
-npm install
-npm run dev
+- git clone https://github.com/pritammaity1/APS-Security-Platform.git
+- cd APS-Security-Platform
+- npm install
+- npm run dev
