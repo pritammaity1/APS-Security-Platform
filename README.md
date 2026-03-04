@@ -35,6 +35,6 @@ This project is a responsive cybersecurity dashboard UI built using React and Ta
 - npm install
 - npm run dev
 
-- Live Demo: https://aps-security-platform-na99ye62h-pritammaity1s-projects.vercel.app/
+- Live Demo: https://aps-security-platform-fbzs7xmxc-pritammaity1s-projects.vercel.app/
 
 - Note: To access the dashboard, click the Login button on the login screen.
