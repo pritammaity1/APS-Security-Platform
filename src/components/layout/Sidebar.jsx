@@ -1,24 +1,12 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import {
-  FiGrid,
-  FiFolder,
-  FiBarChart2,
-  FiCalendar,
-  FiBell,
-  FiSettings,
-  FiHelpCircle,
-} from "react-icons/fi";
+import { FiGrid, FiBarChart2 } from "react-icons/fi";
 
 const Sidebar = () => {
   const menu = [
     { name: "Dashboard", path: "/dashboard", icon: <FiGrid size={18} /> },
-    // { name: "Projects", path: "#", icon: <FiFolder size={18} /> },
+
     { name: "Scans", path: "/activeScan", icon: <FiBarChart2 size={18} /> },
-    // { name: "Schedule", path: "#", icon: <FiCalendar size={18} /> },
-    // { name: "Notification", path: "#", icon: <FiBell size={18} /> },
-    // { name: "Settings", path: "#", icon: <FiSettings size={18} /> },
-    // { name: "Support", path: "#", icon: <FiHelpCircle size={18} /> },
   ];
 
   return (
